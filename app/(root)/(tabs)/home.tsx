@@ -109,12 +109,19 @@ const Home = () => {
               <Text className="text-2xl font-JakartaExtraBold">
                 Welcome {user?.firstName}👋
               </Text>
-              <TouchableOpacity
-                onPress={handleSignOut}
-                className="justify-center items-center w-10 h-10 rounded-full bg-white"
-              >
-                <Image source={icons.out} className="w-4 h-4" />
-              </TouchableOpacity>
+              <View className="flex flex-row gap-10">
+                <Link href={{ pathname: "/(auth)/driver-welcome" }} asChild>
+                  <Pressable>
+                    <Image source={icons.selectedMarker} className="w-8 h-8" />
+                  </Pressable>
+                </Link>
+                <TouchableOpacity
+                  onPress={handleSignOut}
+                  className="justify-center items-center w-10 h-10 rounded-full bg-white"
+                >
+                  <Image source={icons.out} className="w-4 h-4" />
+                </TouchableOpacity>
+              </View>
             </View>
 
             <GoogleTextInput
