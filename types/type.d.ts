@@ -123,17 +123,26 @@ declare interface LocationStore {
     address: string;
   }) => void;
 }
+// declare interface Driver {
+//   id: number;
+//   profile_image_url: string;
+//   car_image_url: string;
+//   title: string;
+//   price: number;
+//   time: number;
+//   car_seats: number;
+// }
 
 declare interface DriverStore {
   drivers: MarkerData[];
-  selectedDriver: number | null;
-  setSelectedDriver: (driverId: number) => void;
+  selectedDriver: MarkerData | null;
+  setSelectedDriver: (driver: MarkerData) => void;
   setDrivers: (drivers: MarkerData[]) => void;
   clearSelectedDriver: () => void;
 }
 
 declare interface DriverCardProps {
   item: MarkerData;
-  selected: number;
+  selected: boolean;
   setSelected: () => void;
 }
