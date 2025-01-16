@@ -1,7 +1,7 @@
 import { useUser } from "@clerk/clerk-expo";
 import { useAuth } from "@clerk/clerk-expo";
 import * as Location from "expo-location";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import { useState, useEffect } from "react";
 import {
   Text,
@@ -10,6 +10,7 @@ import {
   Image,
   FlatList,
   ActivityIndicator,
+  Pressable,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -20,6 +21,7 @@ import { icons, images } from "@/constants";
 import { useFetch } from "@/lib/fetch";
 import { useLocationStore } from "@/store";
 import { Ride } from "@/types/type";
+import OpenStreetMap from "@/components/OpenStreeMap";
 
 const Home = () => {
   const { user } = useUser();
@@ -121,12 +123,18 @@ const Home = () => {
               handlePress={handleDestinationPress}
             />
 
+            <Link href={{ pathname: "/find-ride" }} asChild>
+              <Pressable>
+                <Text>Go to Find Ride</Text>
+              </Pressable>
+            </Link>
             <>
               <Text className="text-xl font-JakartaBold mt-5 mb-3">
                 Your current location
               </Text>
               <View className="flex flex-row items-center bg-transparent h-[300px]">
-                <Map />
+                {/* <Map /> */}
+                <OpenStreetMap />
               </View>
             </>
 

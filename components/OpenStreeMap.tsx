@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import MapView, { UrlTile, Marker } from "react-native-maps";
 
-const OpenStreetMapMap: React.FC = () => {
+const OpenStreetMap: React.FC = () => {
   return (
     <View style={styles.container}>
       <MapView
@@ -34,7 +34,7 @@ const OpenStreetMapMap: React.FC = () => {
   );
 };
 
-export default OpenStreetMapMap;
+export default OpenStreetMap;
 
 const styles = StyleSheet.create({
   container: {

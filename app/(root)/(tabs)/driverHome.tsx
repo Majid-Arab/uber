@@ -21,7 +21,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { useFetch } from "@/lib/fetch";
 import { Ride } from "@/types/type";
-import OpenStreetMapMap from "@/components/OpenStreeMap";
+import OpenStreetMap from "@/components/OpenStreeMap";
 import { BarChart } from "react-native-gifted-charts";
 
 export default function DriverHome() {
@@ -156,7 +156,7 @@ export default function DriverHome() {
               </Text>
               <View className="flex flex-row items-center bg-transparent h-[300px]">
                 {/* <Map /> */}
-                <OpenStreetMapMap />
+                <OpenStreetMap />
               </View>
               <View>
                 <BarChart />
