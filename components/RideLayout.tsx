@@ -9,7 +9,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import Map from "@/components/Map";
 import { icons } from "@/constants";
-import OpenStreetMap from "./OpenStreeMap";
+import OpenStreetMapMap from "./OpenStreeMap";
 
 const RideLayout = ({
   title,
@@ -42,7 +42,7 @@ const RideLayout = ({
           </View>
 
           {/* <Map /> */}
-          <OpenStreetMap />
+          <OpenStreetMapMap />
         </View>
 
         <BottomSheet
@@ -60,14 +60,14 @@ const RideLayout = ({
               {children}
             </BottomSheetView>
           ) : (
-            <BottomSheetScrollView
+            <View
               style={{
                 flex: 1,
                 padding: 20,
               }}
             >
               {children}
-            </BottomSheetScrollView>
+            </View>
           )}
         </BottomSheet>
       </View>
