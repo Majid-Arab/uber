@@ -11,11 +11,7 @@ import { useDriverStore, useLocationStore } from "@/store";
 const BookRide = () => {
   const { user } = useUser();
   const { userAddress, destinationAddress } = useLocationStore();
-  const { drivers, selectedDriver } = useDriverStore();
-
-  const driverDetails = drivers?.filter(
-    (driver) => +driver.id === selectedDriver,
-  )[0];
+  const { selectedDriver } = useDriverStore();
 
   return (
     <StripeProvider
@@ -31,13 +27,13 @@ const BookRide = () => {
 
           <View className="flex flex-col w-full items-center justify-center mt-10">
             <Image
-              source={{ uri: driverDetails?.profile_image_url }}
+              source={{ uri: selectedDriver?.profile_image_url }}
               className="w-28 h-28 rounded-full"
             />
 
             <View className="flex flex-row items-center justify-center mt-5 space-x-2">
               <Text className="text-lg font-JakartaSemiBold">
-                {driverDetails?.title}
+                {selectedDriver?.title}
               </Text>
 
               <View className="flex flex-row items-center space-x-0.5">
@@ -47,7 +43,7 @@ const BookRide = () => {
                   resizeMode="contain"
                 />
                 <Text className="text-lg font-JakartaRegular">
-                  {driverDetails?.rating}
+                  {selectedDriver?.rating}
                 </Text>
               </View>
             </View>
@@ -57,21 +53,21 @@ const BookRide = () => {
             <View className="flex flex-row items-center justify-between w-full border-b border-white py-3">
               <Text className="text-lg font-JakartaRegular">Ride Price</Text>
               <Text className="text-lg font-JakartaRegular text-[#0CC25F]">
-                ${driverDetails?.price}
+                ${selectedDriver?.price}
               </Text>
             </View>
 
             <View className="flex flex-row items-center justify-between w-full border-b border-white py-3">
               <Text className="text-lg font-JakartaRegular">Pickup Time</Text>
               <Text className="text-lg font-JakartaRegular">
-                {formatTime(driverDetails?.time!)}
+                {formatTime(selectedDriver?.time!)}
               </Text>
             </View>
 
             <View className="flex flex-row items-center justify-between w-full py-3">
               <Text className="text-lg font-JakartaRegular">Car Seats</Text>
               <Text className="text-lg font-JakartaRegular">
-                {driverDetails?.car_seats}
+                {selectedDriver?.car_seats}
               </Text>
             </View>
           </View>
@@ -95,9 +91,9 @@ const BookRide = () => {
           <Payment
             fullName={user?.fullName!}
             email={user?.emailAddresses[0].emailAddress!}
-            amount={driverDetails?.price!}
-            driverId={driverDetails?.id}
-            rideTime={driverDetails?.time!}
+            amount={selectedDriver?.price!}
+            driverId={selectedDriver?.id!}
+            rideTime={selectedDriver?.time!}
           />
         </>
       </RideLayout>
