@@ -134,7 +134,7 @@ EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=
 EXPO_PUBLIC_PLACES_API_KEY=
 EXPO_PUBLIC_DIRECTIONS_API_KEY=
 
-EXPO_PUBLIC_DATABASE_URL=
+DATABASE_URL=
 
 EXPO_PUBLIC_SERVER_URL=https://uber.dev/
 
@@ -1341,7 +1341,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const sql = neon(`${process.env.EXPO_PUBLIC_DATABASE_URL}`);
+    const sql = neon(`${process.env.DATABASE_URL}`);
 
     const response = await sql`
         INSERT INTO rides ( 
@@ -1393,7 +1393,7 @@ export async function GET(request: Request, { id }: { id: string }) {
     return Response.json({ error: "Missing required fields" }, { status: 400 });
 
   try {
-    const sql = neon(`${process.env.EXPO_PUBLIC_DATABASE_URL}`);
+    const sql = neon(`${process.env.DATABASE_URL}`);
     const response = await sql`
         SELECT
             rides.ride_id,
