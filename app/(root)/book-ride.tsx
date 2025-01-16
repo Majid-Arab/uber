@@ -19,7 +19,7 @@ const BookRide = () => {
       merchantIdentifier="merchant.com.uber"
       urlScheme="myapp"
     >
-      <RideLayout title="Book Ride">
+      <RideLayout title="Book Ride" snapPoints={["85%"]}>
         <>
           <Text className="text-xl font-JakartaSemiBold mb-3">
             Ride Information
