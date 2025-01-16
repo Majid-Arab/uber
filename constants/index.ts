@@ -95,6 +95,88 @@ export const onboarding = [
   },
 ];
 
+export interface FormState {
+  vehicle_type: string;
+  age: string;
+  gender: string;
+  DOB: string;
+  brand: string;
+  registrationPlate: string;
+  cnic_front: string;
+  cnic_back: string;
+  vehicleModel: string;
+  drivingLicenseImage: string;
+  vehicleImage: string;
+}
+
+export const driverOnboarding = [
+  {
+    id: 1,
+    title: "Vehicle",
+    image: images.onboarding1,
+    options: [
+      { label: "Car", value: "car" },
+      { label: "Bike", value: "bike" },
+      { label: "Rikshaw", value: "rikshaw" },
+    ],
+    key: "vehicle",
+  },
+  {
+    id: 2,
+    title: "Personal Details",
+    description: "Tell us more about yourself.",
+    fields: [
+      { label: "Age", placeholder: "Your Age", key: "age" },
+      { label: "Gender", placeholder: "Your Gender", key: "gender" },
+      { label: "Date of birth", placeholder: "Your date of birth", key: "DOB" },
+    ],
+  },
+  {
+    id: 3,
+    title: "Upload Your CNIC Picture",
+    key: "images",
+    type: "multi-image",
+    images: [
+      { label: "CNIC Front", key: "front" },
+      { label: "CNIC Back", key: "back" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Upload Your Picture",
+    key: "picture",
+    type: "image",
+    images: [{ label: "Your Picture", key: "picture" }],
+  },
+  {
+    id: 5,
+    title: "Vehicle Details",
+    description: "Tell us more about your vehicle.",
+    fields: [
+      {
+        label: "Brand",
+        placeholder: "Search for vehicle brand",
+        key: "brand",
+        type: "dropdown",
+      },
+      {
+        label: "Registration Plate",
+        placeholder: "Your Registration Plate",
+        key: "registration-plate",
+        type: "input",
+      },
+      {
+        label: "Vehicle Model Year",
+        placeholder: "e.g., 2016",
+        key: "vehicle-model",
+        type: "input",
+      },
+    ],
+    key: "pictures",
+    type: "multi-image",
+  },
+];
+
 export const data = {
   onboarding,
 };
