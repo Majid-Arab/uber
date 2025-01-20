@@ -67,6 +67,7 @@ declare interface GoogleInputProps {
   initialLocation?: string;
   containerStyle?: string;
   textInputBackgroundColor?: string;
+  onKeyPress?: (event: { nativeEvent: { text: string } }) => void;
   handlePress: ({
     latitude,
     longitude,
@@ -99,6 +100,8 @@ declare interface PaymentProps {
 
 declare interface LocationStore {
   userLatitude: number | null;
+  // location: string;
+  // setLocation: (location: string) => void;
   userLongitude: number | null;
   userAddress: string | null;
   destinationLatitude: number | null;
