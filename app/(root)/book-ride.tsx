@@ -1,7 +1,6 @@
 import { useUser } from "@clerk/clerk-expo";
 import { StripeProvider } from "@stripe/stripe-react-native";
 import { Image, Text, View } from "react-native";
-
 import Payment from "@/components/Payment";
 import RideLayout from "@/components/RideLayout";
 import { icons } from "@/constants";
@@ -10,8 +9,49 @@ import { useDriverStore, useLocationStore } from "@/store";
 
 const BookRide = () => {
   const { user } = useUser();
-  const { userAddress, destinationAddress } = useLocationStore();
+  const {
+    userAddress,
+    destinationAddress,
+    // userLatitude,
+    // userLongitude,
+    // destinationLatitude,
+    // destinationLongitude,
+  } = useLocationStore();
   const { selectedDriver } = useDriverStore();
+  // const [routeDetails, setRouteDetails] = useState<{
+  //   distance: string;
+  //   duration: string;
+  // } | null>(null);
+
+  // useEffect(() => {
+  //   const fetchRouteDetails = async () => {
+  //     if (
+  //       !userLatitude ||
+  //       !userLongitude ||
+  //       !destinationLatitude ||
+  //       !destinationLongitude
+  //     )
+  //       return;
+
+  //     try {
+  //       const response = await fetch(
+  //         `https://router.project-osrm.org/route/v1/driving/${userLongitude},${userLatitude};${destinationLongitude},${destinationLatitude}?overview=false`
+  //       );
+  //       const data = await response.json();
+
+  //       if (data.routes && data.routes[0]) {
+  //         setRouteDetails({
+  //           distance: `${(data.routes[0].distance / 1000).toFixed(1)} km`,
+  //           duration: `${Math.round(data.routes[0].duration / 60)} mins`,
+  //         });
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching route details:", error);
+  //     }
+  //   };
+
+  //   fetchRouteDetails();
+  // }, [userLatitude, userLongitude, destinationLatitude, destinationLongitude]);
 
   return (
     <StripeProvider
@@ -57,6 +97,24 @@ const BookRide = () => {
               </Text>
             </View>
 
+            {/* {routeDetails && (
+              <>
+                <View className="flex flex-row items-center justify-between w-full border-b border-white py-3">
+                  <Text className="text-lg font-JakartaRegular">Distance</Text>
+                  <Text className="text-lg font-JakartaRegular">
+                    {routeDetails.distance}
+                  </Text>
+                </View>
+
+                <View className="flex flex-row items-center justify-between w-full border-b border-white py-3">
+                  <Text className="text-lg font-JakartaRegular">Duration</Text>
+                  <Text className="text-lg font-JakartaRegular">
+                    {routeDetails.duration}
+                  </Text>
+                </View>
+              </>
+            )} */}
+
             <View className="flex flex-row items-center justify-between w-full border-b border-white py-3">
               <Text className="text-lg font-JakartaRegular">Pickup Time</Text>
               <Text className="text-lg font-JakartaRegular">
@@ -76,14 +134,14 @@ const BookRide = () => {
             <View className="flex flex-row items-center justify-start mt-3 border-t border-b border-general-700 w-full py-3">
               <Image source={icons.to} className="w-6 h-6" />
               <Text className="text-lg font-JakartaRegular ml-2">
-                {userAddress}
+                {userAddress || "Pickup Address Not Set"}
               </Text>
             </View>
 
             <View className="flex flex-row items-center justify-start border-b border-general-700 w-full py-3">
               <Image source={icons.point} className="w-6 h-6" />
               <Text className="text-lg font-JakartaRegular ml-2">
-                {destinationAddress}
+                {destinationAddress || "Destination Address Not Set"}
               </Text>
             </View>
           </View>
