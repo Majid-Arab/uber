@@ -1,6 +1,5 @@
 import { router } from "expo-router";
 import { Text, View } from "react-native";
-
 import CustomButton from "@/components/CustomButton";
 import GoogleTextInput from "@/components/GoogleTextInput";
 import RideLayout from "@/components/RideLayout";
@@ -19,31 +18,39 @@ const FindRide = () => {
     <RideLayout title="Ride">
       <View className="my-3">
         <Text className="text-lg font-JakartaSemiBold mb-3">From</Text>
-
         <GoogleTextInput
           icon={icons.target}
-          initialLocation={userAddress!}
+          initialLocation={userAddress || ""}
           containerStyle="bg-neutral-100"
           textInputBackgroundColor="#f5f5f5"
-          handlePress={(location) => setUserLocation(location)}
+          handlePress={(location) => {
+            setUserLocation(location);
+            console.log("User Location Updated:", location);
+          }}
         />
       </View>
 
       <View className="my-3">
         <Text className="text-lg font-JakartaSemiBold mb-3">To</Text>
-
         <GoogleTextInput
           icon={icons.map}
-          initialLocation={destinationAddress!}
+          initialLocation={destinationAddress || ""}
           containerStyle="bg-neutral-100"
           textInputBackgroundColor="transparent"
-          handlePress={(location) => setDestinationLocation(location)}
+          handlePress={(location) => {
+            setDestinationLocation(location);
+            console.log("Destination Location Updated:", location);
+          }}
         />
       </View>
 
+      {/* Find Now Button */}
       <CustomButton
         title="Find Now"
-        onPress={() => router.push(`/(root)/confirm-ride`)}
+        onPress={() => {
+          router.push(`/(root)/confirm-ride`);
+          console.log("Addresses:", { userAddress, destinationAddress });
+        }}
         className="mt-5"
       />
     </RideLayout>
