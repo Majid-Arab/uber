@@ -70,8 +70,8 @@ const Home = () => {
     longitude: number;
     address: string;
   }) => {
+    console.log("Location received in handlePress:", location);
     setDestinationLocation(location);
-
     router.push("/(root)/find-ride");
   };
 
@@ -128,6 +128,10 @@ const Home = () => {
               icon={icons.search}
               containerStyle="bg-white shadow-md shadow-neutral-300"
               handlePress={handleDestinationPress}
+              onKeyPress={(event) => {
+                console.log("Input submitted:", event.nativeEvent.text);
+                router.push("/(root)/find-ride");
+              }}
             />
 
             <Link href={{ pathname: "/find-ride" }} asChild>
