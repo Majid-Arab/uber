@@ -8,8 +8,8 @@ const OpenStreetMap: React.FC = () => {
       <MapView
         style={styles.map}
         initialRegion={{
-          latitude: 37.7749, // Initial latitude
-          longitude: -122.4194, // Initial longitude
+          latitude: 24.8654849, // Initial latitude
+          longitude: 67.0528702, // Initial longitude
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
@@ -23,8 +23,8 @@ const OpenStreetMap: React.FC = () => {
         {/* Example Marker */}
         <Marker
           coordinate={{
-            latitude: 37.7749,
-            longitude: -122.4194,
+            latitude: 24.864529,
+            longitude: 67.0572001,
           }}
           title="San Francisco"
           description="This is a marker in San Francisco"
