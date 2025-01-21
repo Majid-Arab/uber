@@ -133,12 +133,6 @@ const Home = () => {
                 router.push("/(root)/find-ride");
               }}
             />
-
-            <Link href={{ pathname: "/find-ride" }} asChild>
-              <Pressable>
-                <Text>Go to Find Ride</Text>
-              </Pressable>
-            </Link>
             <>
               <Text className="text-xl font-JakartaBold mt-5 mb-3">
                 Your current location
