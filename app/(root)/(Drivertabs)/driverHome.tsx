@@ -128,7 +128,7 @@ export default function DriverHome() {
                 <Pressable className="border border-gray-300 rounded-md px-5 py-2 flex items-center justify-between">
                   <Text>Last Trip</Text>
                   <Text className="text-3xl font-semibold text-green-600">
-                    <Text className="text-sm">Rs </Text>20.22
+                    Rs 20.22
                   </Text>
                 </Pressable>
               </Link>
@@ -136,7 +136,7 @@ export default function DriverHome() {
                 <Pressable className="border border-gray-300 rounded-md px-5 py-2 flex items-center justify-between">
                   <Text> Todays Total</Text>
                   <Text className="text-3xl font-semibold text-green-600">
-                    <Text className="text-sm">Rs </Text>20.22
+                    Rs 20.22
                   </Text>
                 </Pressable>
               </Link>
