@@ -27,7 +27,7 @@ const TabIcon = ({
 export default function Layout() {
   return (
     <Tabs
-      initialRouteName="home"
+      initialRouteName="driverHome"
       screenOptions={{
         // tabBarActiveTintColor: "#3a3a3a",
         // tabBarInactiveTintColor: "white",
@@ -49,9 +49,9 @@ export default function Layout() {
       }}
     >
       <Tabs.Screen
-        name="home"
+        name="driverHome"
         options={{
-          title: "Home",
+          title: "Driver Home",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <TabIcon source={icons.home} focused={focused} />
@@ -86,16 +86,6 @@ export default function Layout() {
           tabBarIcon: ({ focused }) => (
             <TabIcon source={icons.profile} focused={focused} />
           ),
-        }}
-      />
-      <Tabs.Screen
-        name="driverHome"
-        options={{
-          title: "driverHome",
-          headerShown: false,
-          // Hide the tab from the tab bar
-          tabBarButton: () => null,
-          tabBarStyle: { display: "none" },
         }}
       />
     </Tabs>
