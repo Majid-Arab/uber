@@ -28,7 +28,7 @@ const GoogleTextInput = ({
 
   return (
     <View
-      className={`flex flex-row items-center justify-center relative z-50 rounded-xl ${containerStyle}`}
+      className={`flex flex-row justify-start items-center relative bg-neutral-100 rounded-xl border border-neutral-100 focus:border-primary-500 ${containerStyle}`}
     >
       {icon && (
         // <View className="absolute left-3 top-1/2 transform -translate-y-1/2">
