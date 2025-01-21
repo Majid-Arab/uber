@@ -105,7 +105,7 @@ const DriverForm = () => {
     if (!isLastStep) {
       setCurrentStep((prev) => prev + 1);
     } else {
-      router.replace("/driverHome");
+      router.replace("/(root)/(driverTabs)/driverHome");
       // Alert.alert("Hi");
     }
     // } else {
@@ -214,7 +214,7 @@ const DriverForm = () => {
         )}
       </ScrollView>
 
-      <View className="flex-row justify-center gap-5 w-40 mt-10">
+      <View className="flex-row justify-center gap-5 w-40 my-10">
         {!isFirstStep && <CustomButton title="Previous" onPress={goPrevStep} />}
 
         <CustomButton
