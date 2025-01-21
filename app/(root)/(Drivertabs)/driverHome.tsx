@@ -85,12 +85,12 @@ export default function DriverHome() {
           paddingBottom: 100,
         }}
         ListEmptyComponent={() => (
-          <View>
+          <View className="flex flex-col items-center justify-center">
             {!loading ? (
               <>
                 <Image
                   source={images.noResult}
-                  className="w-40 h40"
+                  className="w-40 h-40"
                   alt="No recent rides found"
                   resizeMode="contain"
                 />
@@ -123,28 +123,20 @@ export default function DriverHome() {
               containerStyle="bg-white shadow-md shadow-neutral-300"
               handlePress={handleDestinationPress}
             />
-            <View className="flex flex-row items-center justify-between gap-5">
-              <Link
-                href={{ pathname: "/find-ride" }}
-                asChild
-                className="flex-1"
-              >
+            <View className="flex flex-row items-center justify-between gap-5 mt-2">
+              <Link href={{ pathname: "/rides" }} asChild className="flex-1">
                 <Pressable className="border border-gray-300 rounded-md px-5 py-2 flex items-center justify-between">
                   <Text>Last Trip</Text>
                   <Text className="text-3xl font-semibold text-green-600">
-                    $20.22
+                    <Text className="text-sm">Rs </Text>20.22
                   </Text>
                 </Pressable>
               </Link>
-              <Link
-                href={{ pathname: "/find-ride" }}
-                asChild
-                className="flex-1"
-              >
-                <Pressable className="border border-gray-500 rounded-md px-5 py-2 flex items-center justify-between">
-                  <Text>Todays Total</Text>
+              <Link href={{ pathname: "/rides" }} asChild className="flex-1">
+                <Pressable className="border border-gray-300 rounded-md px-5 py-2 flex items-center justify-between">
+                  <Text> Todays Total</Text>
                   <Text className="text-3xl font-semibold text-green-600">
-                    $20.22
+                    <Text className="text-sm">Rs </Text>20.22
                   </Text>
                 </Pressable>
               </Link>
@@ -158,10 +150,10 @@ export default function DriverHome() {
                 {/* <Map /> */}
                 <OpenStreetMapMap />
               </View>
-              <View>
+              {/* <View>
                 <BarChart />
-              </View>
-              <Text className="text-xl font-JakartaBold mt-5 mb-3 ">
+              </View> */}
+              <Text className="text-xl font-JakartaBold mt-5 mb-3">
                 Recent Rides
               </Text>
             </>
