@@ -30,7 +30,17 @@ const GoogleTextInput = ({
     <View
       className={`flex flex-row items-center justify-center relative z-50 rounded-xl ${containerStyle}`}
     >
+      {icon && (
+        // <View className="absolute left-3 top-1/2 transform -translate-y-1/2">
+        <Image
+          source={icon || icons.search}
+          className="w-6 h-6 ml-4"
+          resizeMode="contain"
+        />
+        // </View>
+      )}
       <TextInput
+        className={`rounded-full flex-1 text-left`}
         value={inputValue}
         onChangeText={handleChange}
         onSubmitEditing={handleSubmit} // Handle submit when pressing "Enter"
@@ -39,23 +49,12 @@ const GoogleTextInput = ({
         style={{
           backgroundColor: textInputBackgroundColor ?? "white",
           fontSize: 16,
-          fontWeight: "600",
-          marginTop: 5,
           width: "100%",
           borderRadius: 200,
-          paddingHorizontal: 20,
-          paddingVertical: 10,
+          paddingHorizontal: 10,
+          alignItems: "center",
         }}
       />
-      {icon && (
-        <View className="absolute left-3 top-1/2 transform -translate-y-1/2">
-          <Image
-            source={icon || icons.search}
-            className="w-6 h-6"
-            resizeMode="contain"
-          />
-        </View>
-      )}
     </View>
   );
 };
